@@ -6,6 +6,7 @@ import {Container, Row, Col, Button } from "react-bootstrap"
 import { useNavigate, useParams } from "react-router-dom"
 import { useMutation } from "react-query"
 import { API } from "../config/api"
+import Thumbnail from "../Asset/play.png"
 
 export default function DetailFilm(){
     const navigate = useNavigate();
@@ -128,6 +129,29 @@ export default function DetailFilm(){
     //     handleBuy();
     //     handleMylist();
     // }
+
+    const [transaction, setTransaction] = useState([])
+
+    const getListsTrans = async () => {
+        try{
+            const response = await API.get("/transadmin");
+            setTransaction(response.data.data)
+            console.log(response.data.data)
+        }catch(error){
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
+        getListsTrans();
+    }, [])
+
+    console.log(transaction);
+
+    // let data = transaction.find(item => item.idFilm === 2)
+
+    let transactionSuccess = transaction.find((item) => item.idFilm === film.id)
+
     return(
         <div>
             <NavbarUSer />
@@ -141,13 +165,27 @@ export default function DetailFilm(){
                     <Col md="8" style={{marginLeft:"2em"}} >
                         <div className="d-flex flex-row mb-4">
                             <h2>{film.title}</h2>
-                            <Button variant="danger" style={{marginLeft:"25em"}} onClick={() => {handleBuy(); }}>Buy Now</Button>
+                            {transactionSuccess ? 
+                                "" :
+                                <Button variant="danger" style={{marginLeft:"25em"}} onClick={() => {handleBuy(); }}>Buy Now</Button>
+                            }
+                            
                             
                         </div>
-                        
-                            
+
+                        {transactionSuccess ?
                             <iframe width="800" height="480" src={film.attache}>
-                            </iframe>
+                            </iframe> 
+                            :
+
+                            <div style={{backgroundImage: `url(${film.image})` }} className="thumbnailCover" onClick={handleBuy}>
+                                
+                                <img src={Thumbnail} width="120" style={{cursor:'pointer'}}  />
+
+                            </div>
+                        }
+
+
                         <div>
                             <p>
                             {film.desc}

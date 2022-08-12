@@ -87,3 +87,13 @@ body {
 .text-contact-chat {
     color: #ababab;
 }
+
+.thumbnailCover {
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 800px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
