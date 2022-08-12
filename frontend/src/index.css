@@ -1,0 +1,89 @@
+body {
+    background-color: #0b0b0b !important;
+    color: #ffffff !important;
+}
+
+.card-product {
+    /* background: #F7E6DA; */
+    border-radius: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 1.5em;
+}
+
+.label-form {
+    /* background: rgba(97, 61, 43, 0.25); */
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 5px 10px;
+    color: grey;
+    box-sizing: border-box;
+    width: 150px;
+    height: 50px;
+    left: 195px;
+    top: 573px;
+    border-radius: 5px;
+    border: 2px solid #613D2B;
+    text-align: center;
+}
+
+.navbar {
+    /* box-shadow: 4px 4px 10px grey; */
+    height: 8vh;
+}
+
+.add-product {
+    display: flex;
+    padding: 20px;
+}
+
+.chat-me {
+    position: relative;
+    background: #262626;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 400px;
+}
+  
+.chat-me::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: -15px;
+    border-top: 15px solid transparent;
+    border-left: 20px solid #262626;
+    border-bottom: 15px solid transparent;
+}
+
+.chat-other {
+    position: relative;
+    background: #575757;
+    border-radius: 5px;
+    margin-left: 10px;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 400px;
+}
+  
+.chat-other::before {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: -15px;
+    border-top: 15px solid transparent;
+    border-right: 20px solid #575757;
+    border-bottom: 15px solid transparent;
+}
+
+.text-contact {
+    font-size: 14px;
+}
+  
+.text-contact-chat {
+    color: #ababab;
+}
